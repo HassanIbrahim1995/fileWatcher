@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class WatchController {
 
     private final DirectoryWatchService directoryWatchService;
+
     @PostMapping("/watch-directory")
     public ResponseEntity<String> watchDirectory(@RequestBody WatchDirectoryRequest request) {
         String path = request.getPath();
