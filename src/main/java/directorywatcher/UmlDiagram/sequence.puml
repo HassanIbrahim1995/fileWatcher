@@ -1,11 +1,18 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+participant User
+participant WatchController
+participant DirectoryWatchService
 
-autonumber
-
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
-
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+User -> WatchController: sendWatchRequest(DirectoryPath)
+activate WatchController
+alt Valid Directory Path
+  WatchController -> DirectoryWatchService: startWatching(DirectoryPath)
+  activate DirectoryWatchService
+  DirectoryWatchService --> WatchController: Confirmation
+  deactivate DirectoryWatchService
+  WatchController --> User: Response (Now watching directory: DirectoryPath)
+else Invalid File Path
+  WatchController --> User: Error Response (Invalid Directory DirectoryPath)
+end
+deactivate WatchController
 @enduml

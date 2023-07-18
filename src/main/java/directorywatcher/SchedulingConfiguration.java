@@ -1,2 +1,10 @@
-package directorywatcher;public class SchedulingConfiguration {
+package directorywatcher;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+@Configuration
+@EnableScheduling
+public class SchedulingConfiguration {
+
 }

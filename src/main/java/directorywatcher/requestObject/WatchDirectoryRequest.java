@@ -1,4 +1,4 @@
-package directorywatcher.controller;
+package directorywatcher.requestObject;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
